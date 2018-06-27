@@ -1,0 +1,33 @@
+{
+  "todos":[
+    {
+        "titulo": "Task 1",
+        "responsable": "Carlos",
+        "descripcion": "Aprender React",
+        "prioridad": "alta"
+
+    },
+    {
+        "titulo": "Task 2",
+        "responsable": "Luna",
+        "descripcion": "Aprender Redux",
+        "prioridad": "media"
+
+    },
+    {
+        "titulo": "Task 3",
+        "responsable": "Luis",
+        "descripcion": "Aprender GrapQl",
+        "prioridad": "baja"
+
+    },
+    {
+        "titulo": "Task 4",
+        "responsable": "Victor",
+        "descripcion": "Scrum Master",
+        "prioridad": "baja"
+
+    }
+  ]
+
+}
