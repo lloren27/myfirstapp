@@ -11,22 +11,25 @@ class TodoForm extends Component {
   };
   this.handleInput = this.handleInput.bind(this)
   this.handleSubmit = this.handleSubmit.bind(this)
+
+  /// debemos enlazar con el componente inicial , es decir que pertenece al componente
 }
 
 handleInput(e){
-  const { value , name } = e.target;
+  const { value , name } = e.target; // almaceno el valor y el name 
   this.setState({
     [name]:value
-  })
+  }) // evento encargado de poder alterar los elementos. Con esto podemos cambiar el dato que hemos establecido inicialmente.
 }
 handleSubmit(e){
   e.preventDefault();
-  this.props.añadirTodo(this.state);
+  this.props.añadirTodo(this.state); // recibe como parametro la nueva tarea
 }
+////onSubmit es para incluir el evento que manda el guardar
   render(){
     return (
       <div className="card">
-        <form className="card-body" onSubmit={this.handleSubmit}>
+        <form className="card-body">
           <div className="form-group">
             <input type="text" name="titulo" className="form-control" placeholder="titulo" onChange={this.handleInput}/>
           </div>
@@ -44,7 +47,7 @@ handleSubmit(e){
             </select>
           </div>
           <div className="form-group">
-            <button type="button" className="btn btn-primary"> Guardar </button>
+            <button type="button" className="btn btn-primary" onClick={this.handleSubmit}> Guardar </button>
             </div>
         </form>
       </div>

@@ -31,9 +31,11 @@ añadirTareas(todo){
   render() {
     // crear un componente o interfaz antes de mostrar los datos , creando multiples tareas para cada tarjeta
     // guardar en una constante para poder mostrarlos despues del return del render.
+    // he añadido la key ={i} ya que en react siempre que hagamos un map para mostrar los elementos de un array 
+    // hay q ponerle una key que debe ser individual para cada elemento del array.
     const todos = this.state.todos.map((todo, i) => {
       return (
-        <div className= "col-md-4">
+        <div className= "col-md-4" key={i}>
           <div className="card mt-4">
             <div className="card-header">
               <h3>{todo.titulo}</h3>
