@@ -27,6 +27,22 @@ añadirTareas(todo){
        todos:[...this.state.todos, todo]
     })
 }
+/////como vas a eliminar tareas seleccionadas debes recibir un index ,
+/// este metodo tienes que incluirlo en un boton  
+/// Como siempre si lo dejamos normal perderemos el scope y no reconoceria el state
+/// puedes incluirlo arriba o incluir el bind this en el Onclick y además el indice esta incluido el el map como indice i
+/// los arreglos estan incluidos en this setState por forman parte de los todos
+/// utilizamos el metodo filter para recomponer array , se añaden los nuevos elementos segun el nuevo criterio
+/// el criterio es que debe incluir en el nuevo array todos los datos que tengan un indice distinto al que hemos pulsado para eliminar.
+eliminarTareas (index) {
+  if (window.confirm(" ¿Estas seguro de que quieres eliminar la tarea? ")){
+    this.setState ({
+      todos: this.state.todos.filter((e, i)=>{
+        return i !== index
+      })
+  })
+  }
+}
 
   render() {
     // crear un componente o interfaz antes de mostrar los datos , creando multiples tareas para cada tarjeta
@@ -46,6 +62,9 @@ añadirTareas(todo){
             <div className="card-body">
               <h5>{todo.descripcion}</h5>
               <p>{todo.responsable}</p>
+            </div >
+            <div className="card-footer">
+            <button className="btn btn-danger" onClick={this.eliminarTareas.bind(this,i)}>Borrar tarea</button>
             </div>
           </div>
         </div>
